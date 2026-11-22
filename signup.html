@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Create a MindSpace account.">
+<title>MindSpace | Sign up</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer></script>
+<script src="nav-auth.js" defer></script>
+<script src="auth.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html"><span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-intro">
+<p class="eyebrow">YOUR PERSONAL SPACE</p>
+<h1>Create your<br><em>MindSpace account.</em></h1>
+<p class="lead">Sign up to create an account. Your wellbeing data remains stored in this browser.</p>
+</div>
+<section class="card auth-card">
+<h2>Sign up</h2>
+<form id="auth-form" data-mode="signup">
+<label for="auth-username">Username</label>
+<input id="auth-username" type="text" autocomplete="username" minlength="2" maxlength="30" required>
+<label for="auth-email">Email</label>
+<input id="auth-email" type="email" autocomplete="email" required>
+<label for="auth-password">Password</label>
+<input id="auth-password" type="password" autocomplete="new-password" minlength="6" required>
+<button id="auth-submit" type="submit">Create account</button>
+</form>
+<p id="auth-status" role="status" aria-live="polite"></p>
+<p>Already have an account? <a href="login.html">Log in</a>.</p>
+</section>
+</main>
+<footer>
+<div><a class="logo" href="index.html">✦ MindSpace</a><p>A little space to feel like yourself.</p></div>
+<div class="privacy"><p>Your wellbeing data is stored in this browser. Anyone using this browser profile may access local entries.</p></div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

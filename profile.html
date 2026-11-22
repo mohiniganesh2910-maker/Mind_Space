@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="View your MindSpace account profile.">
+<title>MindSpace | Profile</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer></script>
+<script src="nav-auth.js" defer></script>
+<script src="profile.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html"><span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-intro">
+<p class="eyebrow">YOUR PERSONAL SPACE</p>
+<h1>Your <em>profile.</em></h1>
+<p class="lead">Your account details are shown here. Wellbeing records remain stored in this browser.</p>
+</div>
+<section class="card auth-card profile-card">
+<h2>Account details</h2>
+<dl class="profile-details">
+<div><dt>Username</dt><dd id="profile-username">Loading…</dd></div>
+<div><dt>Email</dt><dd id="profile-email">Loading…</dd></div>
+</dl>
+<button id="profile-logout" class="secondary" type="button">Log out</button>
+<p id="profile-status" role="status" aria-live="polite"></p>
+</section>
+</main>
+<footer>
+<div><a class="logo" href="index.html">✦ MindSpace</a><p>A little space to feel like yourself.</p></div>
+<div class="privacy"><p>Your wellbeing data is stored in this browser. Anyone using this browser profile may access local entries.</p></div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

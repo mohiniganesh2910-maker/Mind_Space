@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Home</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="script2.js" defer>
+</script>
+</head>
+<body class="index-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html" aria-current="page">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<section class="hero">
+<div>
+<p class="eyebrow">YOUR DAILY WELLBEING SPACE</p>
+<h1>How are you<br>
+<em>feeling today?</em>
+</h1>
+<p class="lead">A moment to pause. A place to check in.<br>Small steps, at your own pace.</p>
+<div class="tiny-note">✦ No pressure. Just a little time for you.</div>
+</div>
+<div class="card mood-card">
+<p class="eyebrow">START WHERE YOU ARE</p>
+<h2>Select your mood</h2>
+<p>There is no right or wrong answer.</p>
+<div class="moods" role="group" aria-label="Choose your mood">
+<button type="button" data-mood="happy" aria-pressed="false">
+<span aria-hidden="true">😊</span>
+<small>Happy</small>
+</button>
+<button type="button" data-mood="good" aria-pressed="false">
+<span aria-hidden="true">🙂</span>
+<small>Good</small>
+</button>
+<button type="button" data-mood="okay" aria-pressed="false">
+<span aria-hidden="true">😐</span>
+<small>Okay</small>
+</button>
+<button type="button" data-mood="stressed" aria-pressed="false">
+<span aria-hidden="true">😟</span>
+<small>Stressed</small>
+</button>
+<button type="button" data-mood="sad" aria-pressed="false">
+<span aria-hidden="true">😔</span>
+<small>Sad</small>
+</button>
+</div>
+<div id="suggestion" class="soft-panel" aria-live="polite">Choose a mood for a gentle suggestion.</div>
+<button id="save-checkin" disabled>Save check-in</button>
+<p id="checkin-status" role="status">
+</p>
+</div>
+</section>
+<section class="section">
+<div class="soft-panel">
+<h2>A little more space for you.</h2>
+<p>Plan small steps, reflect on check-ins, or take a guided pause.</p>
+<div class="actions">
+<a href="dashboard.html">Your dashboard →</a>
+<a href="focus.html">Study & break →</a>
+<a href="grounding.html">Grounding →</a>
+</div>
+</div>
+<div class="section-heading">
+<div>
+<p class="eyebrow">MAKE ROOM FOR YOURSELF</p>
+<h2>A small step can be enough.</h2>
+</div>
+<p>Find something that feels right today.</p>
+</div>
+<div class="feature-grid">
+<a class="feature card" href="breathing.html">
+<span class="feature-icon" aria-hidden="true">◉</span>
+<h3>Breathe & reset</h3>
+<p>Follow a gentle rhythm for one, three, or five minutes.</p>
+<span class="feature-link">Take a moment ↗</span>
+</a>
+<a class="feature card" href="sound-studio.html">
+<span class="feature-icon" aria-hidden="true">♫</span>
+<h3>Sound Studio</h3>
+<p>Layer a calm mix of forest, rain, breeze and focus sounds.</p>
+<span class="feature-link">Take a moment ↗</span>
+</a>
+<a class="feature card" href="activities.html">
+<span class="feature-icon" aria-hidden="true">☀</span>
+<h3>A little activity</h3>
+<p>Find a small, practical way to take a break.</p>
+<span class="feature-link">Take a moment ↗</span>
+</a>
+<a class="feature card" href="games.html">
+<span class="feature-icon" aria-hidden="true">✿</span>
+<h3>Play at your pace</h3>
+<p>Unwind with simple games and no ticking clock.</p>
+<span class="feature-link">Take a moment ↗</span>
+</a>
+<a class="feature card" href="journal.html">
+<span class="feature-icon" aria-hidden="true">✎</span>
+<h3>Your mood journal</h3>
+<p>Make a little room for what’s on your mind.</p>
+<span class="feature-link">Take a moment ↗</span>
+</a>
+<a class="feature card" href="gratitude.html">
+<span class="feature-icon" aria-hidden="true">♡</span>
+<h3>Notice the good</h3>
+<p>Collect the small things you appreciate.</p>
+<span class="feature-link">Take a moment ↗</span>
+</a>
+</div>
+</section>
+<section class="section">
+<p class="eyebrow">YOUR LITTLE MOMENTS</p>
+<h2>Every pause counts.</h2>
+<div id="summary" class="stats">
+</div>
+<p id="latest-checkin">
+</p>
+</section>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

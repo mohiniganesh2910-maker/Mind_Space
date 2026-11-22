@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Gratitude</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="journal-editor.js" defer>
+</script>
+<script src="gratitude.js" defer>
+</script>
+</head>
+<body class="gratitude-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html" aria-current="page">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">NOTICE THE LITTLE GOOD THINGS</p>
+<h1>A little gratitude.<br>
+<em>A little perspective.</em>
+</h1>
+<p class="lead">Something kind. Something ordinary. Something you appreciate.</p>
+</div>
+<div class="two-column">
+<section class="card">
+<h2 id="editor-title">Today I am grateful for…</h2>
+<form id="entry-form">
+<div id="draft-recovery" class="soft-panel" hidden>
+<p>A remembered draft is available.</p>
+<div class="actions">
+<button type="button" id="restore-draft">Restore</button>
+<button type="button" id="discard-draft" class="secondary">Discard</button>
+</div>
+</div>
+<label for="writing-prompt">Optional writing prompt</label>
+<select id="writing-prompt">
+<option value="">Choose a prompt</option>
+<option>What felt difficult today?</option>
+<option>What is one small thing I appreciated?</option>
+<option>What do I need more of tomorrow?</option>
+<option>Who made my day a little easier?</option>
+</select>
+<button type="button" id="use-prompt" class="text-button">Use this prompt</button>
+<label for="entry-text">Your gratitude</label>
+<textarea id="entry-text" rows="7" maxlength="10000" required placeholder="Write something you are grateful for…">
+</textarea>
+<fieldset class="tag-options">
+<legend>Optional tags</legend>
+<label class="check-label">
+<input type="checkbox" data-tag="Study">Study</label>
+<label class="check-label">
+<input type="checkbox" data-tag="Friends">Friends</label>
+<label class="check-label">
+<input type="checkbox" data-tag="Family">Family</label>
+<label class="check-label">
+<input type="checkbox" data-tag="Rest">Rest</label>
+<label class="check-label">
+<input type="checkbox" data-tag="Personal">Personal</label>
+</fieldset>
+<p id="draft-status" role="status">
+</p>
+<div class="actions">
+<button type="submit" id="save-entry">Save entry</button>
+<button type="button" class="secondary" id="cancel-edit" hidden>Cancel edit</button>
+</div>
+<p id="entry-status" role="status">
+</p>
+</form>
+</section>
+<section class="card">
+<p class="eyebrow">YOUR PERSONAL PAGES</p>
+<h2>Saved entries</h2>
+<label for="entry-search">Search your writing</label>
+<input type="search" id="entry-search" placeholder="Find a word or phrase">
+<div class="filters">
+<div>
+<label for="tag-filter">Tag</label>
+<select id="tag-filter">
+<option value="all">All tags</option>
+<option>Study</option>
+<option>Friends</option>
+<option>Family</option>
+<option>Rest</option>
+<option>Personal</option>
+</select>
+</div>
+<div>
+<label class="check-label">
+<input type="checkbox" id="favourites-only">Favourites only</label>
+</div>
+</div>
+<label for="date-filter">Date</label>
+<input type="date" id="date-filter">
+<button type="button" class="text-button" id="clear-filters">Clear filters</button>
+<div id="entries">
+</div>
+</section>
+</div>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

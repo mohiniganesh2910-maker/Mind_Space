@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Your space</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="dashboard.js" defer>
+</script>
+</head>
+<body class="dashboard-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html" aria-current="page">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">YOUR SPACE · YOUR PACE</p>
+<h1>Small moments.<br>
+<em>Room to grow.</em>
+</h1>
+<p class="lead">A gentle view of your day. No targets to chase, just time made for yourself.</p>
+</div>
+<section class="card">
+<div class="section-heading">
+<h2>Today, so far</h2>
+<p id="today-label">
+</p>
+</div>
+<div id="today-stats" class="stats">
+</div>
+<div class="actions quick-links">
+<a href="breathing.html">Breathe</a>
+<a href="grounding.html">Get grounded</a>
+<a href="journal.html">Write a little</a>
+<a href="focus.html">Study & break</a>
+</div>
+</section>
+<div class="two-column section">
+<section class="card">
+<p class="eyebrow">CHOOSE ONE SMALL STEP</p>
+<h2>My small steps</h2>
+<p>Up to three actions per day. Unfinished is okay.</p>
+<label for="plan-day">Plan date</label>
+<input type="date" id="plan-day">
+<form id="plan-form">
+<label for="plan-text">Your action (up to 120 characters)</label>
+<input id="plan-text" maxlength="120" required placeholder="Take a screen break">
+<div class="actions">
+<button id="plan-save">Add action</button>
+<button id="plan-cancel" type="button" class="secondary" hidden>Cancel edit</button>
+</div>
+</form>
+<div class="actions suggestions" id="plan-suggestions">
+</div>
+<p id="plan-status" role="status">
+</p>
+<div id="plan-list">
+</div>
+<details>
+<summary>Previous days</summary>
+<div id="previous-plans">
+</div>
+</details>
+</section>
+<section class="card">
+<p class="eyebrow">A LITTLE REFLECTION</p>
+<h2>Your mood check-ins</h2>
+<label for="insight-range">Time period, including today</label>
+<select id="insight-range">
+<option value="7">Last 7 days</option>
+<option value="30">Last 30 days</option>
+</select>
+<p class="muted">Every saved check-in counts, including multiple check-ins on one day. These are mood categories, not a health score.</p>
+<div id="mood-insights">
+</div>
+<h3>Activities in this period</h3>
+<div id="period-activities">
+</div>
+<p class="muted">Activity and mood appear together for reflection. This does not show that one caused the other.</p>
+</section>
+</div>
+<section class="card">
+<p class="eyebrow">TIME YOU MADE FOR YOU</p>
+<h2>Recent moments</h2>
+<p>Newest first. Undated imported journal entries remain in your journals.</p>
+<div id="recent-activity">
+</div>
+</section>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

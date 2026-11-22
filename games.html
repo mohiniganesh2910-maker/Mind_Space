@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Games</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="games.js" defer>
+</script>
+</head>
+<body class="games-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html" aria-current="page">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">PLAY · PAUSE · ENJOY</p>
+<h1>A little play.<br>
+<em>A lighter moment.</em>
+</h1>
+<p class="lead">No time limits. No rush. Take a break in your own way.</p>
+</div>
+<div class="two-column games-layout">
+<section class="card calm-game">
+<p class="eyebrow">01 · CALM BUTTON</p>
+<h2>A little tap of calm</h2>
+<p>Tap the leaf and watch your points grow.</p>
+<button class="calm-button" id="calm-button" aria-label="Tap the calm leaf">🌿</button>
+<p id="score" role="status">Score: 0</p>
+<button class="secondary" id="reset-calm">Reset score</button>
+</section>
+<section class="card">
+<p class="eyebrow">02 · MEMORY GARDEN</p>
+<h2>Find a familiar pair</h2>
+<p>Reveal two cards. Match all six pairs, at your own pace.</p>
+<div class="game-meta">
+<span id="moves">Moves: 0</span>
+<span id="pairs">Pairs: 0 / 6</span>
+</div>
+<div id="memory-board" class="memory-board" role="group" aria-label="Memory cards">
+</div>
+<p id="game-status" role="status">Choose your first card.</p>
+<button class="secondary" id="restart-memory">Restart game</button>
+</section>
+</div>
+
+<section class="section brain-games-section" aria-labelledby="brain-games-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">03 · BRAIN BOOST</p>
+      <h2 id="brain-games-title">Train your memory</h2>
+      <p>Two gentle brain games. Focus at your own pace and see how far you can go.</p>
+    </div>
+  </div>
+
+  <div class="two-column brain-games-grid">
+    <section class="card recall-game" aria-labelledby="recall-title">
+      <p class="eyebrow">NUMBER RECALL</p>
+      <h2 id="recall-title">Remember the sequence</h2>
+      <p>Memorize the digits before they disappear, then type them from memory.</p>
+
+      <div class="recall-stats" aria-label="Number Recall statistics">
+        <div><span>Level</span><strong id="recall-level">1</strong></div>
+        <div><span>Score</span><strong id="recall-score">0</strong></div>
+        <div><span>Best</span><strong id="recall-best">0</strong></div>
+      </div>
+      <div class="recall-progress" aria-hidden="true"><span id="recall-progress-fill"></span></div>
+      <p id="recall-instruction" class="recall-instruction" role="status">Ready to test your memory?</p>
+      <div id="recall-number-display" class="recall-number-display" aria-label="Number sequence">?</div>
+      <form id="recall-form" class="recall-form" hidden>
+        <label for="recall-answer">Enter the number sequence</label>
+        <input id="recall-answer" type="text" inputmode="numeric" autocomplete="off"
+               pattern="[0-9]+" maxlength="12" placeholder="Type the numbers here" required>
+        <button type="submit">Check answer</button>
+      </form>
+      <div class="actions">
+        <button id="recall-start" type="button">Start game</button>
+      </div>
+      <p id="recall-feedback" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card pattern-game" aria-labelledby="pattern-title">
+      <p class="eyebrow">MISSING PATTERN</p>
+      <h2 id="pattern-title">What comes next?</h2>
+      <p>Look for the rule in each sequence and choose the missing shape or number.</p>
+      <div class="pattern-level-row">
+        <span>Question <strong id="pattern-question-number">1</strong> of <strong id="pattern-total">8</strong></span>
+        <span>Score <strong id="pattern-score">0</strong></span>
+      </div>
+      <div id="pattern-prompt" class="pattern-prompt" aria-live="polite">🌿 · 🌸 · 🌿 · 🌸 · ?</div>
+      <p id="pattern-hint" class="pattern-hint">Choose the item that completes the pattern.</p>
+      <div id="pattern-options" class="pattern-options" role="group" aria-label="Pattern answer choices"></div>
+      <p id="pattern-feedback" role="status" aria-live="polite"></p>
+      <div class="actions">
+        <button id="pattern-next" type="button" disabled>Next question</button>
+        <button id="pattern-restart" class="secondary" type="button">Restart</button>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+<section class="section extra-games-section" aria-labelledby="extra-games-title"><div class="section-heading"><div><p class="eyebrow">04 · PLAY & RESET</p><h2 id="extra-games-title">More little brain breaks</h2><p>Try a quick sequence challenge or a gentle visual focus game.</p></div></div>
+<div class="two-column extra-games-grid">
+<section class="card simon-game" aria-labelledby="simon-game-title"><p class="eyebrow">04 · SEQUENCE MEMORY</p><h2 id="simon-game-title" class="game-card-title">Simon Sequence</h2><p class="game-card-subtitle">Repeat the colours</p><p>Watch the sequence light up, then repeat it in the same order.</p><div class="simon-meta"><span>Level <strong id="simon-level">0</strong></span><span>Best <strong id="simon-best">0</strong></span></div><div id="simon-board" class="simon-board" role="group" aria-label="Colour sequence buttons"><button type="button" data-simon="0" aria-label="Green">●</button><button type="button" data-simon="1" aria-label="Rose">●</button><button type="button" data-simon="2" aria-label="Gold">●</button><button type="button" data-simon="3" aria-label="Blue">●</button></div><p id="simon-status" role="status" aria-live="polite">Press Start and watch carefully.</p><button id="simon-start" type="button">Start sequence</button></section>
+<section class="card color-focus-game" aria-labelledby="leaf-game-title"><p class="eyebrow">04 · VISUAL FOCUS</p><h2 id="leaf-game-title" class="game-card-title">Find the Green Leaf</h2><p class="game-card-subtitle">Spot the leaf among the symbols</p><p>Tap the leaf among the symbols. Each round changes the positions.</p><div class="color-focus-meta">Round <strong id="leaf-round">0</strong> · Score <strong id="leaf-score">0</strong></div><div id="leaf-board" class="leaf-board" role="group" aria-label="Find the leaf game"></div><p id="leaf-status" role="status" aria-live="polite">Ready when you are.</p><button id="leaf-start" type="button">Start focus game</button></section>
+</div></section>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

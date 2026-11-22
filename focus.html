@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Study & break</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="focus.js" defer>
+</script>
+</head>
+<body class="focus-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html" aria-current="page">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">ONE THING AT A TIME</p>
+<h1>Make space<br>
+<em>for focus and rest.</em>
+</h1>
+<p class="lead">A flexible study companion. You decide when the next interval begins.</p>
+</div>
+<div class="two-column">
+<section class="card">
+<p class="eyebrow" id="focus-mode">STUDY</p>
+<h2 id="focus-heading">A little focus time</h2>
+<div id="focus-time" class="large-timer" aria-label="Time remaining">25:00</div>
+<div class="actions">
+<button id="focus-start">Start</button>
+<button id="focus-pause" class="secondary" disabled>Pause</button>
+<button id="focus-reset" class="secondary">Reset</button>
+<button id="focus-skip" class="secondary">Skip to break</button>
+</div>
+<p id="focus-status" role="status">Ready when you are.</p>
+<div id="break-suggestion" class="soft-panel" hidden>
+<h3>A small break idea</h3>
+<p id="break-idea">
+</p>
+<a href="activities.html">Explore activities →</a>
+</div>
+<p id="focus-count">
+</p>
+<p class="muted">Switching tabs pauses this timer. Come back and choose Resume. Skipped and reset intervals are not counted as completed study sessions.</p>
+</section>
+<section class="card">
+<h2>Find your rhythm</h2>
+<div class="actions">
+<button class="secondary" data-preset="25,5">25 / 5 minutes</button>
+<button class="secondary" data-preset="50,10">50 / 10 minutes</button>
+</div>
+<form id="focus-settings">
+<label for="study-minutes">Study minutes (1–120)</label>
+<input id="study-minutes" type="number" min="1" max="120" step="1" value="25" required>
+<label for="break-minutes">Break minutes (1–30)</label>
+<input id="break-minutes" type="number" min="1" max="30" step="1" value="5" required>
+<button>Apply & reset timer</button>
+</form>
+<p class="muted">Applying a new rhythm resets the current interval. Sound is off by default.</p>
+</section>
+</div>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

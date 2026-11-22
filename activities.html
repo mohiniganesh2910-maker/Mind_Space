@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Activities</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="activities.js" defer>
+</script>
+</head>
+<body class="activities-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="activities.html" aria-current="page">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">SMALL ACTIONS · GENTLE BREAKS</p>
+<h1>Choose a moment<br>
+<em>for yourself.</em>
+</h1>
+<p class="lead">You don’t need a big plan. Start with one small activity.</p>
+</div>
+<div class="two-column">
+<section class="card">
+<div class="filters">
+<div>
+<label for="category">Category</label>
+<select id="category">
+<option value="all">All activities</option>
+<option>Mindful</option>
+<option>Movement</option>
+<option>Rest</option>
+<option>Connection</option>
+</select>
+</div>
+<div>
+<label for="minutes">Time available</label>
+<select id="minutes">
+<option value="99">Any duration</option>
+<option value="1">Up to 1 minute</option>
+<option value="5">Up to 5 minutes</option>
+<option value="10">Up to 10 minutes</option>
+</select>
+</div>
+</div>
+<div class="activity-display" id="activity" aria-live="polite">
+</div>
+<div class="actions">
+<button id="next-activity">Give me an activity</button>
+<button id="complete-activity" class="secondary" disabled>Mark completed</button>
+</div>
+<p id="activity-status" role="status">
+</p>
+</section>
+<section class="card">
+<p class="eyebrow">MOMENTS YOU MADE</p>
+<h2>Recent activities</h2>
+<div id="activity-history">
+</div>
+</section>
+</div>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

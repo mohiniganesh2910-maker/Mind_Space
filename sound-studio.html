@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — sound studio for rest, focus and gentle calm.">
+<title>MindSpace | Sound Studio</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer></script>
+<script src="nav-auth.js" defer></script>
+<script src="sound-studio.js" defer></script>
+</head>
+<body class="sound-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html"><span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html" aria-current="page">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden></div>
+<div class="page-intro">
+<p class="eyebrow">NATURE SOUNDS · DEEP CALM</p>
+<h1>Let the room soften.<br><em>Find your quiet rhythm.</em></h1>
+<p class="lead">Blend gentle ambient layers, save your favourites, and settle into a slower pace.</p>
+</div>
+<div class="sound-layout">
+<section class="card audio-card">
+<div class="sound-header-row">
+<div>
+<p class="eyebrow">STUDIO MIXER</p>
+<h2>Curate your atmosphere</h2>
+</div>
+<div class="actions sound-actions">
+<button id="play-all" type="button">Play</button>
+<button id="pause-all" type="button" class="secondary">Pause all</button>
+<button id="stop-all" type="button" class="secondary">Stop all</button>
+<button id="mute-toggle" type="button" class="secondary">Mute</button>
+</div>
+</div>
+<label for="master-volume">Master volume</label>
+<input id="master-volume" type="range" min="0" max="100" step="1" value="72">
+<div class="sound-metadata">
+<span>Active sounds: <strong id="active-count">0</strong></span>
+<span id="playing-state">Ready for your next layer</span>
+</div>
+<div id="sound-list" class="sound-grid" aria-live="polite"></div>
+</section>
+<aside class="card controls-card">
+<p class="eyebrow">SESSION CONTROLS</p>
+<h2>Quick presets</h2>
+<div id="preset-list" class="preset-grid"></div>
+<div class="stacked-fields">
+<label for="sleep-timer">Sleep timer</label>
+<select id="sleep-timer">
+<option value="0">Off</option>
+<option value="15">15 minutes</option>
+<option value="30">30 minutes</option>
+<option value="45">45 minutes</option>
+<option value="60">60 minutes</option>
+</select>
+</div>
+<div class="stacked-fields">
+<label for="mix-name">Save custom mix</label>
+<input id="mix-name" type="text" maxlength="40" placeholder="Example: Moonlit Deep Focus">
+</div>
+<button id="save-mix" type="button">Save this mix</button>
+<div class="mini-panel">
+<h3>Favorites</h3>
+<div id="favorite-sounds" class="compact-list"></div>
+</div>
+<div class="mini-panel">
+<h3>Recently played</h3>
+<div id="recent-sounds" class="compact-list"></div>
+</div>
+<p id="sound-status" class="status-line" role="status" aria-live="polite">Choose a sound to begin.</p>
+</aside>
+</div>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status"></p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

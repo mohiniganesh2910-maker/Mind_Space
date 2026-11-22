@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Breathing</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="breathing.js" defer>
+</script>
+</head>
+<body class="breathing-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html" aria-current="page">Breathing</a>
+<a href="grounding.html">Grounding</a>
+<a href="sound-studio.html">Sound Studio</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">BREATHE · RELAX · RESET</p>
+<h1>Take a deep breath.<br>
+<em>You’ve got this.</em>
+</h1>
+<p class="lead">Settle into a comfortable position. Breathe gently, without forcing it.</p>
+</div>
+<div class="breathing-layout">
+<aside class="card">
+<p class="eyebrow">A MOMENT OF CALM</p>
+<h2>Come back to you.</h2>
+<p>Relax your shoulders and let your attention return to your breath.</p>
+<ul class="gentle-list">
+<li>Inhale · 4 seconds</li>
+<li>Hold · 4 seconds</li>
+<li>Exhale · 6 seconds</li>
+</ul>
+<p class="muted">Take a normal breath or stop whenever you need to.</p>
+</aside>
+<section class="breath-practice" aria-label="Breathing exercise">
+<div class="circle-space">
+<div class="breath-circle" id="breathCircle">
+</div>
+<div class="circle-label">
+<span aria-hidden="true">🌿</span>
+<h2 id="breathText">Ready?</h2>
+<p id="phaseTime">Press Start</p>
+</div>
+</div>
+<p id="roundText" role="status">Follow your breathing rhythm</p>
+<p id="rounds">Completed rounds: 0</p>
+<div class="actions centered">
+<button id="start">Start</button>
+<button id="pause" class="secondary" disabled>Pause</button>
+<button id="reset" class="secondary">Reset</button>
+</div>
+</section>
+<aside class="card">
+<p class="eyebrow">TAKE YOUR TIME</p>
+<h2>Session timer</h2>
+<div id="timer">03:00</div>
+<div class="duration-options" role="group" aria-label="Session duration">
+<button data-minutes="1" aria-pressed="false" class="secondary">1 min</button>
+<button data-minutes="3" aria-pressed="true" class="secondary">3 min</button>
+<button data-minutes="5" aria-pressed="false" class="secondary">5 min</button>
+</div>
+<p class="muted">Switching tabs automatically pauses your session. Return and choose Resume when ready.</p>
+</aside>
+</div>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>

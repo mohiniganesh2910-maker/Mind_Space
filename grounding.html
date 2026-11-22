@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpace — a gentle space for student wellbeing.">
+<title>MindSpace | Grounding</title>
+<link rel="stylesheet" href="style2.css">
+<script src="storage.js" defer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="supabase-client.js" defer></script>
+<script src="script.js" defer>
+</script>
+<script src="nav-auth.js" defer></script>
+<script src="grounding.js" defer>
+</script>
+</head>
+<body class="grounding-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="navbar">
+<a class="logo" href="index.html">
+<span aria-hidden="true">✦</span> MindSpace</a>
+<button id="menu-toggle" class="secondary menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Your space</a>
+<details class="nav-group">
+<summary>Wellbeing tools</summary>
+<div class="nav-dropdown">
+<a href="breathing.html">Breathing</a>
+<a href="grounding.html" aria-current="page">Grounding</a>
+<a href="activities.html">Activities</a>
+<a href="games.html">Games</a>
+<a href="focus.html">Study & break</a>
+</div>
+</details>
+<details class="nav-group">
+<summary>Journals</summary>
+<div class="nav-dropdown">
+<a href="journal.html">Mood journal</a>
+<a href="gratitude.html">Gratitude</a>
+</div>
+</details>
+<a href="chatbot.html">Mindful Companion</a>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<div id="storage-warning" role="alert" hidden>
+</div>
+<div class="page-intro">
+<p class="eyebrow">NOTICE · CONNECT · TAKE YOUR TIME</p>
+<h1>Come back<br>
+<em>to the here and now.</em>
+</h1>
+<p class="lead">An optional exercise. Adapt any step, skip a sense, or stop whenever you prefer.</p>
+</div>
+<div class="two-column">
+<section class="card">
+<p id="ground-progress" class="eyebrow">STEP 1 OF 5</p>
+<h2 id="ground-title" tabindex="-1">Five things you can see</h2>
+<p id="ground-description">
+</p>
+<label for="ground-response">Optional notes (kept temporary)</label>
+<textarea id="ground-response" maxlength="2000" rows="4">
+</textarea>
+<div class="actions">
+<button id="ground-back" class="secondary">Back</button>
+<button id="ground-next">Next</button>
+<button id="ground-skip" class="secondary">Skip step</button>
+</div>
+<div class="actions">
+<button id="ground-restart" class="text-button">Restart</button>
+<button id="ground-exit" class="text-button">Exit exercise</button>
+</div>
+<p id="ground-status" role="status">
+</p>
+<div id="ground-done" hidden>
+<h3>A moment to notice.</h3>
+<p>Your notes remain temporary unless you choose to save them.</p>
+<button id="ground-save-notes" class="secondary">Save my responses</button>
+<button id="ground-retry" class="secondary" hidden>Retry saving completion</button>
+</div>
+</section>
+<aside class="card">
+<p class="eyebrow">ANOTHER WAY TO PAUSE</p>
+<h2>Keep it simple.</h2>
+<p>Notice a few objects around you. If comfortable, feel your feet resting on the floor or another point of support.</p>
+<p>There’s nothing you need to get exactly right. This is an optional wellbeing exercise, not a guaranteed treatment.</p>
+<button id="ground-alternative" class="secondary">Use this simpler exercise</button>
+<h3 class="spaced">Recent grounding moments</h3>
+<div id="ground-history">
+</div>
+</aside>
+</div>
+</main>
+<footer>
+<div>
+<a class="logo" href="index.html">✦ MindSpace</a>
+<p>A little space to feel like yourself.</p>
+</div>
+<div class="privacy">
+<p>Your data is stored in this browser. Anyone using this browser profile may access local entries.</p>
+<div class="actions">
+<button class="text-button" id="export-data">Export my data</button>
+<button class="text-button" id="clear-data">Clear my data</button>
+</div>
+<p id="data-status" role="status">
+</p>
+</div>
+<p class="footer-note">A student wellbeing companion. Not a diagnostic or treatment service.</p>
+</footer>
+</body>
+</html>
